@@ -9,6 +9,8 @@
 <body>
 		<h1>Bienvenue sur ce site!!</h1>
 	<a href="/testServlet/compte">Vos infos utilisateur</a>
-		<a href="/testServlet/articles">La liste des articles</a>
+	<a href="/testServlet/articles">La liste des articles</a>
+	<a href="/testServlet/admin">admin stuff</a>
+		
 </body>
 </html>
