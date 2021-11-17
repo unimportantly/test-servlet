@@ -46,5 +46,11 @@ public class User {
 		this.role = role;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	} 
+	
 	
 }

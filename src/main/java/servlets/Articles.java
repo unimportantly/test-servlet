@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.tomcat.jakartaee.bcel.Const;
 
@@ -25,34 +27,50 @@ public class Articles extends HttpServlet{
 		HttpSession session = req.getSession();
 				
 		//get the user back from the constant
+		/*
 		User user = (User) session.getAttribute(Const.STATIC_INITIALIZER_NAME);
 		
+		
+		System.out.println(user.toString());
 		Article article1 = new Article("Title1", user, "text");
+		session.setAttribute("article1", article1);
 		Article article2 = new Article("Title2", user, "text");
+		session.setAttribute("article2", article2);
 		Article article3 = new Article("Title3", user, "text");
+		session.setAttribute("article3", article3);
 		Article article4 = new Article("Title4", user, "text");
+		session.setAttribute("article4", article4);
 		Article article5 = new Article("Title5", user, "text");
+		session.setAttribute("article5", article5);
 		Article article6 = new Article("Title6", user, "text");
+		session.setAttribute("article6", article6);
 		
 		//TODO can't access the author's name
-		session.setAttribute("titre", article1.getTitle());
-		session.setAttribute("auteur", article1.getAuthor().getName());
-		session.setAttribute("texte", article1.getText());
-		session.setAttribute("titre", article2.getTitle());
-		session.setAttribute("auteur", article2.getAuthor().getName());
-		session.setAttribute("texte", article2.getText());
-		session.setAttribute("titre", article3.getTitle());
-		session.setAttribute("auteur", article3.getAuthor().getName());
-		session.setAttribute("texte", article3.getText());
-		session.setAttribute("titre", article4.getTitle());
-		session.setAttribute("auteur", article4.getAuthor().getName());
-		session.setAttribute("texte", article4.getText());
-		session.setAttribute("titre", article5.getTitle());
-		session.setAttribute("auteur", article5.getAuthor().getName());
-		session.setAttribute("texte", article5.getText());
-		session.setAttribute("titre", article6.getTitle());
-		session.setAttribute("auteur", article6.getAuthor().getName());
-		session.setAttribute("texte", article6.getText());
+		*/
+		
+		List<User> users = new ArrayList<User>();
+		List<Article> articles = new ArrayList<Article>();
+		for (int i = 1; i <= 4; i++) {
+			String name = "user" + i;
+			String email = "user" + i + "@email.com";
+			int nbrPost = i; 
+			String role; 
+			if (i % 2 == 0) {
+				role = "admin";
+			} else {
+				role = "user";
+			}
+			users.add(new User(name, email, nbrPost, role));
+			for (int j = 0; j < nbrPost; j++) {
+				String titre = "titre" + j;
+				User auteur = users.get(i-1);
+				String texte = "texte" + j;
+				articles.add(new Article(titre, auteur, texte));
+			}
+
+		}
+		
+		
 
 		req.getRequestDispatcher("/WEB-INF/articles.jsp").forward(req, resp);
 	}

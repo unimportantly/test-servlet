@@ -26,17 +26,17 @@ public class Compte extends HttpServlet {
 		User user = (User) session.getAttribute(Const.STATIC_INITIALIZER_NAME);
 		
 		//get the different attributes from the user object
-		session.setAttribute("nom", user);
-		session.setAttribute("article", user);
-		session.setAttribute("email", user);
-		session.setAttribute("role", user);
+		session.setAttribute("nom", user.getName());
+		session.setAttribute("article", user.getNombreArticle());
+		session.setAttribute("email", user.getEmail());
+		session.setAttribute("role", user.getRole());
 
 		//forwards the request to the compte.jsp page
 		req.getRequestDispatcher("/WEB-INF/compte.jsp").forward(req, resp);
 		
 		//checks if there is a user logged in, otherwise redirects to the home page
 		if( user == null ) {
-		resp.sendRedirect(this.getServletContext().getContextPath()+ "/testServlet/accueil"); 
+			resp.sendRedirect(this.getServletContext().getContextPath()+ "/testServlet/accueil"); 
 		}
 	}
 	

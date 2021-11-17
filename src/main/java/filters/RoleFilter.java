@@ -23,13 +23,23 @@ public class RoleFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
+		
+		//get the req & resp as http objects
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
+		
+		//récupère la session
 		HttpSession session = request.getSession();
+		
+		//récupère l'user
 		User user = (User) session.getAttribute(Const.STATIC_INITIALIZER_NAME);
+		
+		//check if user is admin
 		if (user.getRole().equals("admin")) {
+			//let user through
 			chain.doFilter(request, response);
 		}
+		//send user back to home page
 		else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/index");
 			dispatcher.include(request, response);

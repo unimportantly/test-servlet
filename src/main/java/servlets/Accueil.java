@@ -28,7 +28,7 @@ public class Accueil extends HttpServlet {
 		//get a session to track
 		HttpSession session = req.getSession();
 		//create a user object
-		User user = new User("jean", "jean@caramail.fr", 6, "admin");
+		User user = new User("jean", "jean@caramail.fr", 6, "regular");
 		//store the user with a constant to be able to access it later
 		session.setAttribute(Const.STATIC_INITIALIZER_NAME, user);
 		

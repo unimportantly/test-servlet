@@ -11,5 +11,6 @@
 	Nombre d'articles : ${article}<br>
 	Email : ${email } <br>
 	Rôle : ${role }</p>
+	
 </body>
 </html>
