@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.tomcat.jakartaee.bcel.Const;
 
@@ -29,14 +30,16 @@ public class Article1 extends HttpServlet {
 		HttpSession session = req.getSession();
 
 		// recreates the article1 object from the request
-		Article article1 = (Article) session.getAttribute("article1");
+		List<Article> articles = (List<Article>) session.getAttribute("articles");
 		//System.out.println(article1.getAuthor());
+		
 		  //set the attributes from the object
-		  session.setAttribute("titre", article1.getTitle());
-		 // session.setAttribute("auteur", article1.getAuthor().getName());
-		  session.setAttribute("texte", article1.getText());
-		 
-
+		for(int i = 0; i < articles.size(); i++) {
+		  session.setAttribute("titre", articles.get(i).getTitle());
+		  session.setAttribute("auteur", articles.get(i).getAuthor().getName());
+		  session.setAttribute("texte", articles.get(i).getText());
+		
+		}
 		req.getRequestDispatcher("/WEB-INF/article1.jsp").forward(req, resp);
 	}
 }

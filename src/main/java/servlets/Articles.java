@@ -67,10 +67,16 @@ public class Articles extends HttpServlet{
 				String texte = "texte" + j;
 				articles.add(new Article(titre, auteur, texte));
 			}
-
 		}
 		
+		session.setAttribute("articles", articles);
+		session.setAttribute("users", users);
 		
+		List<String> titres = new ArrayList<String>();
+		for (int i = 0; i < articles.size(); i++) {
+			titres.add(articles.get(i).getTitle());
+		}
+		session.setAttribute("titres articles", titres);
 
 		req.getRequestDispatcher("/WEB-INF/articles.jsp").forward(req, resp);
 	}

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.awt.List" %>
+<%@ page import="servlets.Articles" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +10,6 @@
 </head>
 <body>
 <h1>Liste des articles</h1>
-	<a href="/testServlet/article1">Article 1</a>
-		<a href="/testServlet/article2">Article 2</a>
-	
-		<a href="/testServlet/article3">Article 3</a>
-	
-		<a href="/testServlet/article4">Article 4</a>
-	
-		<a href="/testServlet/article5">Article 5</a>
-	
-		<a href="/testServlet/article6">Article 6</a>
+${titres}
 </body>
 </html>

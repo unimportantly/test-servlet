@@ -39,6 +39,11 @@ public class Article {
 	public void setText(String text) {
 		this.text = text;
 	}
+
+	@Override
+	public String toString() {
+		return "Article [title=" + title + ", author=" + author + ", text=" + text + "]";
+	}
 	
 	
 }
