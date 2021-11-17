@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-		<h1>Bienvenue sur ce site!!</h1>
-	<a href="/testServlet/compte">Vos infos utilisateur</a>
-		<a href="/testServlet/articles">La liste des articles</a>
+<p>Username : ${nom }<br>
+	Nombre d'articles : ${article}<br>
+	Email : ${email } <br>
+	Rôle : ${role }</p>
 </body>
 </html>

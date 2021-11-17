@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<h1>Bienvenue sur ce site!!</h1>
-	<a href="/testServlet/compte">Vos infos utilisateur</a>
-		<a href="/testServlet/articles">La liste des articles</a>
+<h1>Vous êtes l'admin</h1>
 </body>
 </html>

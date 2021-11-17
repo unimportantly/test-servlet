@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Article 1</title>
 </head>
 <body>
-		<h1>Bienvenue sur ce site!!</h1>
-	<a href="/testServlet/compte">Vos infos utilisateur</a>
-		<a href="/testServlet/articles">La liste des articles</a>
+<h1>titre : ${titre }</h1>
+<h3>auteur : ${auteur }</h3>
+<p>text : ${texte }</p>
 </body>
 </html>
